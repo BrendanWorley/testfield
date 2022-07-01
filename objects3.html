@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Objects basics test 3</title>
+</head>
+<body>
+   <p>Objects basics Test 3</p>
+</body>
+<script>
+   const cat = {
+   name : 'Bertie',
+   breed : 'Cymric',
+   color : 'white',
+   greeting: function() {
+      
+      console.log(`Hello, said ${this.name} the ${this.breed}.`);
+      
+      }
+   }
+   console.log(cat.greeting());
+    
+</script>
+</html>

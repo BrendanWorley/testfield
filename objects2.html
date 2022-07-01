@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Object Basics 2</title>
+</head>
+<body>
+   <div class="container">
+      <p class="caption">My Favorite Band Info</p>
+      <br>
+      <br>
+      <label for="bandName">Enter Band's name</label>
+      <input id="bandName" type="text">
+      <br>
+      <br>
+      <label for="bandNationality">Enter Band's nationality</label>
+      <input id="bandNationality">
+      <br>
+      <br>
+      <label for="bandGenre">Enter Band's genre</label>
+      <input type="text" id="bandGenre">
+      <br>
+      <br>
+      <label for="bandMembers">Enter the number of Band's members</label>
+      <input type="text" id="bandMembers">
+      <br>
+      <br>
+      <label for="bandFormed">Enter the year the Band was formed</label>
+      <input type="date" id="bandFormed">
+      <br>
+      <br>
+      <label for="bandSplit">Enter the year the Band split</label>
+      <input type="date" id="bandSplit">
+      <br>
+      <br>
+      <p>Add Albums information here:</p>
+      <input type="text" id="albumName">
+      <input type="date" id="albumYear">
+      <button id="addAlbumButton">Add Album's info</button>
+      <br>
+      <br>
+      <button id="formInfoButton">Print Band Info</button>
+   </div>
+   
+   <script>
+      //declaring basic variables
+      const container = document.querySelector(".container");
+      const bandName = document.getElementById('bandName');
+      const bandNationality = document.getElementById('bandNationality');
+      const bandGenre = document.getElementById('bandGenre');
+      const bandMembers = document.getElementById('bandMembers');
+      const bandFormed = document.getElementById('bandFormed');
+      const bandSplit = document.getElementById('bandSplit');
+      const addAlbumButton = document.getElementById('addAlbumButton');
+      let albumsList = [];
+
+      //forming main object and its elements using the input fields 
+      const formInfoButton = document.getElementById('formInfoButton');
+      formInfoButton.addEventListener("click", printBandInfo);
+      function printBandInfo() {
+         const bandInfo = {};
+         bandInfo.name = bandName.value;
+         bandInfo.nationality = bandNationality.value;
+         bandInfo.genre = bandGenre.value;
+         bandInfo.members = bandMembers.value;
+         bandInfo.formed = bandFormed.value;
+         bandInfo.split = bandSplit.value;
+         bandInfo.albums = albumsList;
+       
+         //printing the Band info out 
+         let bandPrintReport = document.createElement('p');
+         container.appendChild(bandPrintReport);
+         bandPrintReport.textContent = `Band Info \n\r
+
+         Band's name: ${bandInfo.name}; 
+         Band's nationality: ${bandInfo.nationality}; 
+         Genre: ${bandInfo.genre}; 
+         Members: ${bandInfo.members}; 
+         The Band was formed ${bandInfo.formed}; 
+         The Band splitted on ${bandInfo.split}.`;
+         console.log(bandPrintReport);
+         
+         for( i = 0; i <= albumsList.length - 1; i++ )  {
+            let bandPrintReport2 = document.createElement('p');
+            container.appendChild(bandPrintReport2);
+            bandPrintReport2.textContent = `Album's name: ${bandInfo.albums[i].albumN} (issued on ${bandInfo.albums[i].albumY}).`;
+            console.log(bandPrintReport2);   
+         }
+         
+      }
+
+      
+
+      // launching new album entry  
+      addAlbumButton.addEventListener("click", addAlbum);
+
+      function addAlbum() {
+         const albumN = document.getElementById('albumName');
+         const albumY = document.getElementById('albumYear');
+         const albumAdded = {
+            albumN: albumN.value,
+            albumY: albumY.value,
+            }
+           
+            albumsList.push(albumAdded);
+            console.log(albumsList);
+            albumN.value = '';
+            albumY.value = '';
+      }
+      
+   </script>
+</body>
+</html>
