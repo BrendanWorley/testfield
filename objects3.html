@@ -21,6 +21,30 @@
       }
    }
    console.log(cat.greeting());
+
+   function createCats(name, breed, color) {
+
+      const testobject = {};
+      this.name = name;
+      this.breed = breed;
+      this.color = color;
+      this.greeting = function() {
+
+         console.log(`Hello, said ${this.name}-${this.color} the ${this.breed}.`);
+
+      }
+      
+
+   }
     
+   const cat2 = new createCats("Susie", "Breedless", "ugly-stained");
+   cat2.name;
+   cat2.breed;
+   cat2.color;
+   cat2.greeting();
+   
+   
+
+
 </script>
 </html>
