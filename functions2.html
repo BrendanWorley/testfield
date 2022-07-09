@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Functions 2</title>
+   </head>
+   <body>
+      <div class="container">
+         <button id="button">Draw a Rect</button>
+         <canvas class="canvas"></canvas>
+      </div>
+   </body>
+   <script>
+      const button = document.getElementById('button');
+      const canvas = document.querySelector('.canvas');
+      const ctx = canvas.getContext('2d');
+      const x = 50;
+      const y = 60;
+      const width = 100;
+      const height = 75;
+      const color = 'blue';
+
+      document.addEventListener('DOMContentLoaded', () => {
+         canvas.width = document.documentElement.clientWidth;
+         canvas.height = document.documentElement.clientHeight;
+      } )
+      
+      button.addEventListener("click", drawRect);
+
+      function drawRect() {
+         ctx.beginPath();
+         ctx.moveTo(x, y);
+         ctx.lineTo(x + width, y);
+         ctx.lineTo(x + width, y + height);
+         ctx.lineTo(x, y + height);
+         ctx.lineTo(x, y);
+         ctx.fillStyle = color;
+         ctx.fill();
+
+         
+      }
+   </script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Objects Freelancer</title>
+</head>
+<body>
+   
+</body>
+<script>
+   /*const word = "estimated";
+
+   const userInfo = {
+      name: "Вася",
+      [word + " age"]: 38,
+      address: {
+         city: "New York",
+         street: "Colgane",
+   }
+
+   }
+   console.log(userInfo);
+   console.log(userInfo.address.city)*/
+   /*function makeUserInfo(name, age) {
+      return {
+         name,
+         age,
+      }
+   }
+
+   let userInfo = makeUserInfo('Вася', 38)
+   console.log(userInfo)*/
+  /* const userInfo = {
+      name: "Вася",
+      
+      
+   }
+
+   //console.log(userInfo);
+   userInfo.age = 38;
+   //console.log(userInfo);
+   userInfo['estimated age'] = 35;
+   //console.log(userInfo);
+   userInfo.address = {
+      city: 'New York',
+      street: 'Freedom',
+      
+   }
+   //console.log(userInfo);
+     
+   //delete userInfo.age;
+   //console.log(userInfo);
+
+   userInfo.address.street = 'Trenton';
+   //console.log(userInfo.address.street);
+
+   //const user2 = userInfo;
+   //console.log(user2.address.street);
+
+   user3 = Object.assign({}, userInfo, {['hair color']: 'red'});
+   user3['estimated age'] = 42;
+   console.log(userInfo['estimated age']);
+   console.log(user3['estimated age']);
+   if (user3['hair color']) {
+   console.log(user3['hair color']);
+   
+
+   }
+
+   if ('estimated age' in user3) {
+      console.log(user3['estimated age']);
+   }
+
+   for (let key in user3) {
+      console.log(key);
+      console.log(user3[key]);
+
+   }
+
+   for (let key in user3.address) {
+      console.log(key);
+      console.log(user3.address[key]);
+
+   }
+
+   user3.showInfo = function() {console.log(`ДАННЫЕ: Возраст -${this.age}, Цвет волос -${this['hair color']}, Оценочный возраст - ${this['estimated age']}.`)
+      }
+
+      user3 = null;
+
+   console.log(user3.showInfo()); */
+   
+   function userInfo(name, age) {
+      this.name = name;
+      this.age = age;
+
+   }
+
+   console.log(new userInfo('John', 36));
+
+
+</script>
+</html>

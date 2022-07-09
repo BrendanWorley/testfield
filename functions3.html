@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Functions 3</title>
+   </head>
+   <body>
+      <div class="container">
+
+      </div>
+   </body>
+   <script>
+      const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+      const container = document.querySelector('.container');
+
+      function chooseName(nameList) {
+        
+         function random() {
+            nameNumber = Math.floor(Math.random() * (nameList.length + 1));
+            return nameNumber;
+            
+         }
+         random();
+         console.log(nameNumber);
+
+         const nameSelected = nameList[nameNumber];
+
+         const box = document.createElement('p');
+         container.appendChild(box);
+         box.textContent = nameSelected;
+      }
+      chooseName(names);
+    
+   </script>
+</html>
