@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Introduction to events</title>
+     </head>
+     <body>
+      <!-- <button class="button">Change color</button>
+      <div class="myArea">This is my area</div> -->
+      <p><label><input type="checkbox" id="checkbox"> Checked</label></p>
+      <p><button id="button">Click me to send a MouseEvent to the checkbox</button></p>
+      <button id="button2">Button2</button>
+     </body>
+     <style>
+         /* .myArea {
+            border: 1px solid black;
+            max-width: 250px;
+            min-height: 550px;
+         } */
+     </style>
+     <script>
+         //Abort signal ----------------------------------------------------------------
+         /* const controller = new AbortController();
+         const signal = controller.signal;
+         const btn = document.querySelector('.button');
+         console.log(btn);
+
+
+
+         btn.addEventListener('click', () => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         document.body.style.backgroundColor = rndCol;
+         }, { signal }); // pass an AbortSignal to this handler
+
+         function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+         }
+
+         controller.abort(); */
+         //Assignment event handler through the element's property---------------------------
+         /* const btn = document.querySelector('.button');
+         btn.onclick = () => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         document.body.style.backgroundColor = rndCol;
+         } */
+
+         //The same as above but with a concrete function assignment -----------------------
+         /* const btn = document.querySelector('.button');
+         btn.onclick = bgChange;
+         
+         function bgChange() {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         document.body.style.backgroundColor = rndCol;
+         }
+
+         function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+         } */
+
+         //e, event, evt usage instead of concrete element ----------------------------------
+         /* const btn = document.querySelector('.button');
+         const myArea = document.querySelector('.myArea');
+         btn.addEventListener('click', bgChange);
+         myArea.addEventListener('click', bgChange);
+         
+         
+
+         function bgChange(e) {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         e.target.style.backgroundColor = rndCol;
+         }
+
+         function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+         } */
+
+         //Simulating mouse even on button click even -------------------------------
+         function simulateClick() {
+            //getting element on which we are going to create a fake event
+            const cb = document.getElementById('checkbox');
+            // getting another element for which we shall dispatch a fake event
+            const button2 = document.getElementById('button2');
+            // creating a fake click on the cb
+            let evt = new MouseEvent('click', {
+               bubbles: true,
+               cancelable: true,
+               view: window
+            });
+               //creating another fake event for button 2
+            let evt2 = new MouseEvent('dblclick', {
+               bubbles: true,
+               cancelable: true,
+               view: window
+            });
+
+            //sending the fake events to the target objects which are the checkbox cb and the button2
+            cb.dispatchEvent(evt);
+            button2.dispatchEvent(evt2);
+         }
+
+         //and now we are actually launching the two fake functions dispatched once the button is pressed
+         document.getElementById('button').addEventListener('click', simulateClick);
+
+         //and this is the ordinary launch of an ordinary function of random coloring on button2
+         button2.addEventListener('dblclick', bgChange);
+         
+         //and these are the ordinary functions coloring the button2 in random color
+         function bgChange(e) {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         e.target.style.backgroundColor = rndCol;
+         }
+
+         function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+         }
+         //------------------------------------------------------------------------------
+
+
+     </script>
+  </html>

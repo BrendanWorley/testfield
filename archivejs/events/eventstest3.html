@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Events Skill Test 3</title>
+     </head>
+     <style>
+         .button-bar {
+            width:500px;
+            height: 150px;
+            border: 2px grey solid;
+         }
+         button {
+            transform: translatey(250px);
+         }
+     </style>
+     <body>
+         <div class="button-bar">
+            <button  data-color="red">Red</button>
+            <button  data-color="yellow">Yellow</button>
+            <button  data-color="green">Green</button>
+            <button  data-color="purple">Purple</button>
+         </div>
+     </body>
+     <script>
+         const container = document.querySelector('.button-bar');
+         container.addEventListener('click', (e) => {
+            e.currentTarget.style.backgroundColor = e.target.getAttribute('data-color');
+            console.log(e.currentTarget.style.backgroundColor);
+         });
+     </script>
+  </html>

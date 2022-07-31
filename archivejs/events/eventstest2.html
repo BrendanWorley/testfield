@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Events Skill Test 2</title>
+     </head>
+     <body>
+         <canvas id="canvas"></canvas>
+     </body>
+     <script>
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+
+      function drawCircle(x, y, size) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black';
+      ctx.arc(x, y, size, 0, 2 * Math.PI);
+      ctx.fill();
+      }
+
+      
+      const size = 30;
+
+      /* drawCircle(x, y, size); */
+      document.addEventListener('keydown', (e) => {
+         if (e.key === 'w') {
+               x = canvas.width - 40;
+               y = 50
+               drawCircle(x, y, size);
+         } else if (e.key === 'a') {
+               x = canvas.width - 40;
+               y = canvas.height - 40;
+               drawCircle(x, y, size);
+            
+            } else if (e.key === 's') {
+            
+               x = 50;
+               y = canvas.height - 40;
+               drawCircle(x, y, size);
+            } else if (e.key === 'd') {
+            
+               x = 50;
+               y = 50;
+               drawCircle(x, y, size);
+            } else if (e.key === 'w') {
+               x = canvas.width - 40;
+               y = 50;
+               drawCircle(x, y, size);
+            } else if ((e.key !== 'w') && (e.key !== 'a') && (e.key !== 's') && (e.key !== 'd'))  {
+               alert('You only hit the WASD keys!');
+            }
+            
+      });
+      
+
+
+      // Add your code here
+
+    
+     </script>
+  </html>

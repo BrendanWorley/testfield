@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Video Player Example</title>
+     </head>
+     <body>
+      <button>Display video</button>
+
+      <div class="hidden">
+        <video>
+          <source src="https://raw.githubusercontent.com/mdn/learning-area/master/javascript/building-blocks/events/rabbit320.mp4" type="video/mp4">
+          <source src="https://raw.githubusercontent.com/mdn/learning-area/master/javascript/building-blocks/events/rabbit320.webm" type="video/webm">
+          <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+        </video>
+      </div>
+       
+     </body>
+     <script>
+      const btn = document.querySelector('button');
+      const videoBox = document.querySelector('div');
+
+      function displayVideo() {
+         if (videoBox.getAttribute('class') === 'hidden') {
+         videoBox.setAttribute('class','showing');
+         }
+      }
+
+      btn.addEventListener('click', displayVideo);
+      videoBox.addEventListener('click', () => videoBox.setAttribute('class', 'hidden'));
+
+      const video = document.querySelector('video');
+
+      video.addEventListener('click', () => video.play());
+
+
+     </script>
+  </html>

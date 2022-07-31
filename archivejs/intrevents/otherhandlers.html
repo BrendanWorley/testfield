@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Other event handlers</title>
+     </head>
+     <body>
+      <div id="container">
+         <button id="button">Click me</button>
+      </div>
+      </body>
+     <script>
+      const button = document.getElementById('button');
+      const body = document.body;
+      const container = document.getElementById('container');
+
+      function changeMe(e) {
+         e.currentTarget.style.backgroundColor = 'red';
+      }
+
+      /* button.onblur = changeMe; */
+      container.onclick = changeMe;
+     </script>
+  </html>

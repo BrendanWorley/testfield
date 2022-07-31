@@ -6,6 +6,11 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Object Basics 2</title>
 </head>
+<style>
+   .bandPrintReport {
+      white-space: pre-line;
+   }
+</style>
 <body>
    <div class="container">
       <p class="caption">My Favorite Band Info</p>
@@ -60,20 +65,33 @@
       const formInfoButton = document.getElementById('formInfoButton');
       formInfoButton.addEventListener("click", printBandInfo);
       function printBandInfo() {
-         const bandInfo = {};
+         /* const bandInfo = {};
          bandInfo.name = bandName.value;
          bandInfo.nationality = bandNationality.value;
          bandInfo.genre = bandGenre.value;
          bandInfo.members = bandMembers.value;
          bandInfo.formed = bandFormed.value;
          bandInfo.split = bandSplit.value;
-         bandInfo.albums = albumsList;
-       
-         //printing the Band info out 
-         let bandPrintReport = document.createElement('p');
-         container.appendChild(bandPrintReport);
-         bandPrintReport.textContent = `Band Info \n\r
+         bandInfo.albums = albumsList; */
+         
+         //changed the pattern of object forming as Michael adviesd on MDN Forum. this is instead of the lines above
+         const bandInfo = {
+         name: bandName.value,
+         nationality: bandNationality.value,
+         genre: bandGenre.value,
+         members: bandMembers.value,
+         formed: bandFormed.value,
+         split: bandSplit.value,
+         albums: albumsList,
+         }
 
+
+         //printing the Band info out 
+         //------------------moved outside the current function as Michael suggested--------------------------------
+         /* let bandPrintReport = document.createElement('p');
+         container.appendChild(bandPrintReport); */
+         //----------------------------------------------------------
+         bandPrintReport.textContent = `Band Info 
          Band's name: ${bandInfo.name}; 
          Band's nationality: ${bandInfo.nationality}; 
          Genre: ${bandInfo.genre}; 
@@ -86,7 +104,7 @@
             let bandPrintReport2 = document.createElement('p');
             container.appendChild(bandPrintReport2);
             bandPrintReport2.textContent = `Album's name: ${bandInfo.albums[i].albumN} (issued on ${bandInfo.albums[i].albumY}).`;
-            console.log(bandPrintReport2);   
+                        console.log(bandPrintReport2);   
          }
          
       }
@@ -109,7 +127,11 @@
             albumN.value = '';
             albumY.value = '';
       }
-      
+      //-----------------moved here as Michael suggested---------------
+      let bandPrintReport = document.createElement('p');
+         container.appendChild(bandPrintReport);
+         bandPrintReport.classList.add('bandPrintReport');
+      //----------------------------------------------------------------
    </script>
 </body>
 </html>

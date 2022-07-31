@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Events Test Skills 1</title>
+     </head>
+     <body>
+         <button id="button" class="off">Machine is off</button>
+     </body>
+     <script>
+         const button = document.getElementById('button');
+         
+         button.addEventListener('click', () => {
+            if (button.innerText === 'Machine is off') {
+               button.innerText = 'Machine is on!';
+               button.style.border = `3px red solid`;
+               button.style.color = `red`;
+            } else {
+               button.innerText = 'Machine is off';
+               button.style.border = `3px green solid`;
+               button.style.color = `green`;
+            }
+            
+         });
+     </script>
+  </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Enter your title</title>
+     </head>
+     <body>
+      <form>
+         <div>
+           <label for="fname">First name: </label>
+           <input id="fname" type="text">
+         </div>
+         <div>
+           <label for="lname">Last name: </label>
+           <input id="lname" type="text">
+         </div>
+         <div>
+            <input id="submit" type="submit">
+         </div>
+       </form>
+       <p id="para"></p>
+       
+     </body>
+     <script>
+      const form = document.querySelector('form');
+      let fname = document.getElementById('fname');
+      let lname = document.getElementById('lname');
+      let para = document.getElementById('para');
+
+      form.addEventListener('submit', (e) => {
+         if (fname.value === '' || lname.value === '') {
+            e.preventDefault();
+            para.textContent = 'You need to fill in both names!';
+            console.log(para);
+         } else {
+            para.textContent = 'Success!'; // странно но эта часть кода не срабатывает но и ошибки в консоли нет. текст не выводится ни в консоль ни в текстовое поле
+            console.log(para);
+         }
+      });
+
+     </script>
+  </html>

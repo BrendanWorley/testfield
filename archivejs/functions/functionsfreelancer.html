@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Functions Freelancer</title>
+     </head>
+     <body>
+     </body>
+     <script>
+        //--------------------------------------------------------------
+        /* function calcSumm(numOne = 'fuck ', numTwo = 'you') {
+         console.log(`Переменная numOne: ${numOne}`);
+         console.log(`Переменная numTwo: ${numTwo}`);
+
+         let numSumm = numOne + numTwo;
+
+         console.log(`Сумма: ${numSumm}`);
+        }
+
+        calcSumm(); */
+
+        //--------------------------------------------------------------
+
+        /* function calcSumm(numOne, numTwo, more, less) {
+         let numSumm = numOne + numTwo;
+
+         if (numSumm > 3) {
+            more();
+         } else {
+            less();
+         }
+        }
+
+        function showMoreMessage() {
+         console.log('Больше чем 3');
+        }
+
+        function showLessMessage() {
+         console.log('Меньше чем 3');
+        }
+
+        calcSumm(1, 1, showMoreMessage, showLessMessage); */
+
+        //----------------------------------------------------------------------
+        /* function calcSumm(numOne, numTwo) {
+         let numSumm = numOne + numTwo;
+
+         return numSumm;
+
+        }
+
+        let funcResult = calcSumm(1, 2);
+        console.log(`Сумма: ${funcResult}`); */
+
+        //---------------------------------------------------------------------
+        /* function getSumm(numOne, numTwo) {
+         let numSumm = calcSumm(numOne, numTwo);
+         console.log(numSumm);
+        }
+        function calcSumm(numOne, numTwo) {
+            return numOne + numTwo;
+        }
+        getSumm(5, 5); */
+
+        //---------------------------------------------------------------------
+        /* function calcSumm(numOne, numTwo) {
+            let result = 1;
+
+            for (let i = 0; i < numTwo; i++) {
+               result *= numOne;
+            }
+            return result; 
+        }
+        console.log(calcSumm(2, 3)); */
+
+        //---------------------------------------------------------------------
+        /* function calcSumm(numOne, numTwo) {
+            if (numTwo === 1) {
+               return numOne;
+            } else {
+               return numOne * calcSumm(numOne, numTwo - 1);
+            }
+        }
+        console.log(calcSumm(2, 3));
+ */
+        //-------------------------------------------------------------------
+
+        
+        /* let showMessage = function() {
+         console.log('Привет!');
+        };
+        showMessage(); */
+
+        //-----------------------------------------------------------------
+        /* function getSumm() {
+         let sum = 1 + 2;
+         console.log(sum);
+        };
+
+        let someVar = getSumm;
+        someVar();
+        getSumm();
+ */
+
+        //------------------------------------------------------------------
+        /* let getSumm
+        if (2 > 1) {
+        getSumm = function() {
+         let summ = 1 + 2;
+         console.log(summ);
+        };
+      }
+      getSumm();
+ */
+      //-------------------------------------------------------------------
+      /* let getMessage = (text, name) => text + ', ' + name + '!';
+
+      console.log(getMessage('Привет', 'Вася')); */
+      
+      //-------------------------------------------------------------------
+      /* let getMessage = (text, name) => {
+         let message = text + ', ' + name + '!';
+         return message;
+      }
+      console.log(getMessage('Привет', 'Вася')) */
+
+      //-------------------------------------------------------------------
+
+      /* function showMessage(text, name) {
+         console.log(`${text}, ${name}!`);
+         setTimeout(showMessage, 10000, 'Hi', 'Dude');
+      }
+
+      setTimeout(showMessage, 10000, 'Hi', 'Dude');
+      //setInterval(showMessage, 5000, 'Hi', 'Dude'); */
+
+      //------------------------------------------------------------------
+      /* function showNumber(num) {
+         console.log(num);
+         let timeId = setTimeout(showNumber, 1000, ++num);
+         if (num === 10) {
+                  clearTimeout(timeId);
+         } 
+      }
+      setTimeout(showNumber, 1000, 2); */
+
+      //---------------------------------------------------------------
+      function createMessage(text, name) {
+         return `${text}, ${name}!`;
+      }
+
+      function showMessage(message) {
+         console.log(message);
+      }
+
+      function initMessage(text, name) {
+         showMessage(createMessage(text, name));
+      }
+
+      initMessage('Hi', ' Freelancer');
+</script>
+  </html>

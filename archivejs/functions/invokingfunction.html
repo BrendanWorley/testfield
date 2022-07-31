@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Invoking a function</title>
+     </head>
+     <body>
+      <button id="button">Launch the program</button>
+     </body>
+     <script>
+      const button = document.getElementById('button');
+      const body = document.body;
+      function invokeTest(phrase1, phrase2) {
+         const text = document.createElement('p');
+         text.textContent = `The ${phrase1} is ${phrase2}!`;
+         body.appendChild(text);
+      }
+//if a function has arguments entered it WILL BE RUN even if it is built in the even listener!!!!
+      button.addEventListener('click', () => invokeTest("function", "invoked"));
+//----------------------------------------------------------------------------------------------
+
+
+     </script>
+  </html>

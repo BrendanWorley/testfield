@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>use of bubbling</title>
+     </head>
+     <body>
+         <div id="bigOne">
+            <ul id="container">
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+            </ul>
+         </div>
+     </body>
+     <script>
+         const bigOne = document.querySelector('#bigOne');
+         function touch(e) {
+            e.currentTarget.style.backgroundColor = 'green';
+
+         }
+         bigOne.addEventListener('click', touch);
+     </script>
+  </html>

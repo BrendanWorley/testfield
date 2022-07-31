@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>currentTarget</title>
+     </head>
+     <style>
+      #target1 {
+         width: 1000px;
+         height: 200px;
+         border: 1px red solid;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+      }
+
+      #target2, #target3 {
+         width: 100px;
+         height: 100px;
+         border: 1px green solid;
+         margin: 20px;
+      }
+     </style>
+     <body>
+      <div id="target1">
+         <p>TARGET 1</p>
+         <div id="target2">
+            <p>TARGET 2</p>
+         </div>
+         
+      </div>
+      <div id="target3">
+         <p>TARGET 3</p>
+      </div>
+
+     </body>
+     <script>
+      const body = document.body;
+      const target1 = document.querySelector('#target1');
+      const target2 = document.querySelector('#target2');
+      const target3 = document.querySelector('#target3');
+      
+
+      target1.addEventListener('click', (evt) => {
+         evt.currentTarget.style.backgroundColor = 'blue';
+         /* event.stopPropagation(); */  
+      });
+      target2.addEventListener('click', (event) => {
+         event.currentTarget.style.backgroundColor = 'blue';
+         e.stopPropagation();
+         
+         
+      });
+      
+      /* target3.addEventListener('click', (event) => {
+         event.currentTarget.style.backgroundColor = 'blue';
+      }); */
+      body.addEventListener('click', (event) => {
+         event.currentTarget.style.backgroundColor = 'blue';
+         console.log(event);
+      });
+
+     </script>
+  </html>

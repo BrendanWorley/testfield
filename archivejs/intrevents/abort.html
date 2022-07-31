@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Abort Controller
+
+        </title>
+     </head>
+     <style>
+      #rect1 {
+         border: 1px red solid;
+         width: 150px;
+         height: 150px;
+      }
+     </style>
+     <body>
+      <button id="button">Click me</button>
+      <div id="rect1"></div>
+      <button id="abort1">Abort 1</button>
+     </body>
+     <script>
+      const button = document.getElementById('button');
+      const rect1 = document.getElementById('rect1');
+      const body = document.body;
+      const abort1Button = document.getElementById('abort1');
+      const controller = new AbortController();
+
+      
+      body.addEventListener('click', (e) => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         e.target.style.backgroundColor = rndCol;
+         
+         }, {signal: controller.signal});
+      
+      button.addEventListener('click', (e) => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         e.currentTarget.style.backgroundColor = rndCol;
+      }, {signal: controller.signal});
+
+      rect1.addEventListener("click", (e) => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         e.currentTarget.style.backgroundColor = rndCol;
+         console.log(e);
+      }, {signal: controller.signal, once: false});
+
+        function random(number) {
+         return Math.floor(Math.random() * (number+1));
+      }
+      
+      button.addEventListener('click', (e) => {
+         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+         body.style.backgroundColor = rndCol;
+      });
+
+      abort1Button.addEventListener('click', () => {
+         controller.abort();
+      })
+            
+
+     </script>
+  </html>
