@@ -14,6 +14,14 @@
          button {
             transform: translatey(250px);
          }
+         .button-bar1 {
+            width:500px;
+            height: 150px;
+            border: 2px grey solid;
+         }
+         button {
+            transform: translatey(250px);
+         }
      </style>
      <body>
          <div class="button-bar">
@@ -22,12 +30,29 @@
             <button  data-color="green">Green</button>
             <button  data-color="purple">Purple</button>
          </div>
+         <div class="button-bar1">
+            <button  data-color="red">Red</button>
+            <button  data-color="yellow">Yellow</button>
+            <button  data-color="green">Green</button>
+            <button  data-color="purple">Purple</button>
+         </div>
      </body>
      <script>
          const container = document.querySelector('.button-bar');
+         const container1 = document.querySelector('.button-bar1');
          container.addEventListener('click', (e) => {
-            e.currentTarget.style.backgroundColor = e.target.getAttribute('data-color');
+            /* e.currentTarget.style.backgroundColor = e.target.getAttribute('data-color');--old version */
+            container.style.backgroundColor = e.target.getAttribute('data-color'); //-corrected version container nstead of the e.currentTarget
             console.log(e.currentTarget.style.backgroundColor);
          });
+      //-----here I experimented with e.currentTarget with giving the function a name so that it could be applied to any structure of elements
+         container1.addEventListener('click', run);
+         function run(e) {
+            e.currentTarget.style.backgroundColor = e.target.getAttribute('data-color');
+            
+            console.log(e.currentTarget.style.backgroundColor);
+         }
+
+
      </script>
   </html>
