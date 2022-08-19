@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+
+        introduce() {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    }
+
+    
+
+    class Student extends Person {
+        
+        #year;
+        #gender;
+        #height;
+
+        constructor(name, year = 'pre', gender, height) {
+        super(name);
+        this.#year = year;
+        this.#gender = gender;
+        this.#height = height;
+        }
+       
+        introduce() {
+             
+            console.log(`Hello, I'm a student here. My name's ${this.name} and I'm in the '${this.year}'.`);
+        }
+
+        #phys() {
+            console.log(`Private health information: Gender - ${this.#gender}
+            Hegith - ${this.#height}.`)
+        }
+
+        disclosePrivate() {
+            this.#phys();
+        }
+    }
+    const lisa = new Student('Lisa', 2, 'female', '176cm');
+    lisa.introduce();
+    console.log(lisa.year);
+    lisa.disclosePrivate();
+    </script>
+</html>

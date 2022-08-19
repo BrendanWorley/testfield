@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+  <html lang='en'>
+     <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Object Basics
+
+        </title>
+     </head>
+     <body>
+     </body>
+     <script>
+         const person = {
+            name: {
+               first: 'Bob', 
+               last: "Smith",
+            },
+            age: 32,
+            bio() {
+               console.log(`${this.name.first} ${this.name.last} is ${this.age} years old.`);
+            },
+            introduceSelf: function () {
+               console.log(`Hi! I'm ${this.name.last}.`);
+            }
+         };
+         console.log(person.bio(), person.introduceSelf());
+         person.bio(); 
+         person.introduceSelf();
+         //-----see the person.name referred to as an undefined and person.bio() as its normal representation----
+         console.log(person.name.last);
+         person.bio();
+         //------promting the new object member---------------------------------------
+         /* const input = prompt('Get the data type');
+         
+         const inputValue = prompt('Get the data value');
+         person[input] = inputValue;
+         console.log(person[input]); */
+         //-------------------------------------------------------
+         person.age = 41;
+         console.log(person['age']);
+         person['name']['last'] = 'Franklin';
+         person.introduceSelf();
+         //----------creating new object members-----------------
+         person['eyeColor'] = 'blue';
+         person.bio = function() {
+            console.log(`Full name: ${this.name.first} ${this.name.last};
+            Age: ${this.age};
+            Eyes: ${this.eyeColor}.`);
+         };
+         person.bio();
+         //-------creating new members and members' name----------
+         newMember = 'Gender';
+         genderValue = 'male';
+
+         person[newMember] = genderValue;
+         console.log(person.Gender);
+         
+         //--------creating new object from the old one----------
+         const newPerson = {
+            name: {
+               first: 'Paula',
+               last: 'Wheeler',
+            },
+            age: 38,
+            eyeColor: 'brown',
+            Gender: 'female',
+            bio() {
+               console.log(`               Age:${this.age};
+               Full name: ${this.name.first[0]}.${this.name.last};
+               Eyes color: ${this.eyeColor};
+               Gender: ${this.Gender}.`);
+            },
+            introduceSelf() {
+               console.log(`Hi! I'm ${this.name.first}.`);
+            },
+
+         };
+         newPerson.bio();
+         newPerson.introduceSelf();
+
+         
+
+
+     </script>
+  </html>

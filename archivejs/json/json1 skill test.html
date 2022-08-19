@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON1</title>
+</head>
+<style>
+    section {
+        font-size: 45px;
+        white-space: pre-line;
+    }
+</style>
+<body>
+    
+</body>
+<script>
+    async function getCatInfo() {
+        const requestURL =  'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json';
+        const request = new Request(requestURL); 
+        const response = await fetch(request);
+        const transText = await response.text();
+        const catsInfo = JSON.parse(transText);
+
+        populateCatInfo(catsInfo);
+    }
+    
+    function populateCatInfo(obj) {
+        const section = document.createElement('section');
+        let catsInfoPost = '';
+        
+        const catsGlobal = obj;
+
+        let kittenNumber = 0;
+        let kittenFemale = 0;
+        let kittenMale = 0;
+
+        for (i = 0; i < obj.length; i++) {
+            if (i === obj.length - 1) {
+                catsInfoPost += `${obj[i].name}. `;
+            } else {
+                catsInfoPost += `${obj[i].name}, `;
+            }
+
+            const kittenList = obj[i].kittens;
+            kittenNumber += kittenList.length;
+             
+            for (kitten of kittenList) {
+                if (kitten.gender === 'f') {
+                    kittenFemale++;
+                } else {
+                    kittenMale++;
+                }
+            }
+            
+
+        }
+
+            //-------here's an extra play with class and object creation-----------------------------
+
+        class parentsAndChildren {
+            constructor(parentKind, childKind, parentsNames, childrenNumber, childrenFemales, childrenMales) {
+                this.parentKind = parentKind;
+                this.childKind = childKind;
+                this.parentsNames = parentsNames;
+                this.childrenNumber = childrenNumber;
+                this.childrenFemales = childrenFemales;
+                this.childrenMales = childrenMales;
+            
+                this.summary = `We've got ${this.parentKind} named: ${this.parentsNames}
+                Who have ${this.childrenNumber} ${this.childKind} in total, 
+                of which ${this.childrenFemales} are females and ${this.childrenMales} are males.`;
+            }
+
+            
+        
+        }
+
+            //--------creating a new object based on class above-------------------------------
+        const catsInfo1 = new parentsAndChildren('cats', 'kittens', catsInfoPost, kittenNumber, kittenFemale, kittenMale);
+        
+            //--------transferring all the data formed into the relevant html elelemts--------
+        document.body.appendChild(section);
+        const catsPublish1 = document.createElement('p');
+        catsPublish1.textContent = catsInfo1.summary;
+        section.appendChild(catsPublish1);
+
+    }
+
+    getCatInfo();
+    
+
+</script>
+</html>
