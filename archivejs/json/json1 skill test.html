@@ -61,12 +61,14 @@
 
         class parentsAndChildren {
             constructor(parentKind, childKind, parentsNames, childrenNumber, childrenFemales, childrenMales) {
+                
                 this.parentKind = parentKind;
                 this.childKind = childKind;
                 this.parentsNames = parentsNames;
                 this.childrenNumber = childrenNumber;
                 this.childrenFemales = childrenFemales;
                 this.childrenMales = childrenMales;
+                
             
                 this.summary = `We've got ${this.parentKind} named: ${this.parentsNames}
                 Who have ${this.childrenNumber} ${this.childKind} in total, 
@@ -78,7 +80,7 @@
         }
 
             //--------creating a new object based on class above-------------------------------
-        const catsInfo1 = new parentsAndChildren('cats', 'kittens', catsInfoPost, kittenNumber, kittenFemale, kittenMale);
+        const catsInfo1 = new parentsAndChildren('cats', 'kittens', catsInfoPost, kittenNumber, kittenFemale, kittenMale, 'catsPublish1');
         
             //--------transferring all the data formed into the relevant html elelemts--------
         document.body.appendChild(section);
