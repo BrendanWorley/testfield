@@ -85,7 +85,7 @@ class Ball extends Shape {
 //------setting up the class for 'EvilCircle' extending from the same 'Shape' class-----
 class EvilCircle extends Shape {
   constructor(x, y, velX, velY) {
-    super(x, y, 20, 20);
+    super(x, y, 5, 5);
     this.color = '#fffefc';
     this.size = 10;
 
@@ -120,19 +120,19 @@ class EvilCircle extends Shape {
   //-----this code provides for keeping the EvilCirlce within the canvas-----
   checkBounds() {
     if ((this.x + this.size) >= width) {
-      this.x = -(this.size);
+      this.x = (width - this.size);
     }
 
     if ((this.x - this.size) <= 0) {
-      this.x = -(this.size);
+      this.x = (this.size);
     }
 
     if ((this.y + this.size) >= height) {
-      this.y = -(this.size);
+      this.y = (height - this.size);
     }
 
     if ((this.y - this.size) <= 0) {
-      this.y = -(this.size)
+      this.y = (this.size)
     }
   }
 
@@ -186,10 +186,7 @@ function loop() {
   ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
   ctx.fillRect(0, 0, width, height);
 
-  //-----manipulating the EvilCirle--------------------------------
-  theLangolier.draw();
-  theLangolier.checkBounds();
-  theLangolier.collisionDetect();
+  
 
   //----balls' behaviour-----------------------------------------
   existingBalls = 0;
@@ -200,17 +197,21 @@ function loop() {
       ball.collisionDetect();
       existingBalls ++;
     }
-    scoreDisplay.textContent = existingBalls; 
+    scoreDisplay.textContent = existingBalls;
+     
     
   }
 
   
 
   requestAnimationFrame(loop);
-
+  //-----manipulating the EvilCirle--------------------------------
+  theLangolier.checkBounds();
+  theLangolier.draw();
+  theLangolier.collisionDetect();
 }
 
 //-----------here we need to push the loop() function at least once and then it'll pick it up by itself----
 loop();
-
+console.log(theLangolier.x, theLangolier.y);
 
