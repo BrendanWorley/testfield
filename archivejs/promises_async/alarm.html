@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm API</title>
+</head>
+<body>
+    <button id="set-alarm">Set alarm</button>
+    <div id="output"></div>
+</body>
+<script>
+    const output = document.querySelector('#output');
+    const button = document.querySelector('#set-alarm');
+
+    function setAlarm() {
+        setTimeout(() => {
+            output.textContent = 'Wake up';
+        }, 15000);
+        console.log('Standby expression');
+    }
+
+    button.addEventListener('click', setAlarm);
+
+    
+</script>
+</html>

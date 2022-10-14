@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lushenko Promises</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let a = 7
+
+    console.log("a :", a)
+
+    let b = new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            a = 10;
+        
+            if (a === 15) {
+                resolve("this is a success", a);
+                }
+            else {
+                reject("this is a reject");
+            };
+            
+        }, 45000);
+    } );
+
+    b.then(()=> {
+        console.log("updated a: ", a);
+    });
+
+    // b.catch((error)=> {
+    //     console.log(error);
+    // });
+
+    // b.finally((error)=> {
+    //     console.log("Error anyway:", error);
+    // })
+</script>
+</html>

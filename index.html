@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Bouncing balls</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sequencing animations</title>
+    <script type="text/javascript" src="main.js" defer></script>
+    <link href="style.css"rel="stylesheet">
   </head>
-
+  
   <body>
-    <h1>bouncing balls</h1>
-    
-    <canvas></canvas>
-    <p class="score"></p>
+    <div class="buttonSet">
+      <button class="buttonCallBack">Callback option</button>
+      <button class="buttonPromise">Promise option</button>
+      <button class="buttonAsync">Async option</button>
+    </div>
+    <div id="alice-container">
+      <img id="alice1"  src="alice.svg" role="img" alt="silhouette of crouching long haired character in dress and short boots">
+      <img id="alice2"  src="alice.svg" role="img" alt="silhouette of crouching long haired character in dress and short boots">
+      <img id="alice3"  src="alice.svg" role="img" alt="silhouette of crouching long haired character in dress and short boots">
+    </div>
 
-    <script src="main.js"></script>
   </body>
+
 </html>

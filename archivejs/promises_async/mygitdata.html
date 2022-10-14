@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get my Git Data</title>
+</head>
+<style>
+    .body {
+        text-align: center;
+    }
+</style>
+<body> 
+    <button class="button">get my ID</button>
+</body>
+<script>
+    const button = document.querySelector('.button');
+    async function getMyDitData() {
+        const request = await fetch('https://api.github.com/users/BrendanWorley');
+        const received = await request.json();
+        console.log(received.id);
+        const printField = document.createElement('p');
+        printField.classList.add('output');
+        document.body.appendChild(printField);
+        printField.textContent = received.id;
+    }
+    button.addEventListener('click', getMyDitData);
+
+</script>
+</html>
