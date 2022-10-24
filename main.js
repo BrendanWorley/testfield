@@ -1,5 +1,6 @@
 // initialization -------------------------------------------------------------
 
+const buttonThen = document.querySelector('.buttonThen');
 const buttonCallBack = document.querySelector('.buttonCallBack');
 const buttonPromise = document.querySelector('.buttonPromise');
 const buttonAsync = document.querySelector('.buttonAsync');
@@ -46,6 +47,24 @@ const aliceTiming = {
     }, interval);
   };
 
+// .then() hell version ---------------------------------------------
+function tumbleAliceThen() {
+  const showAnimateObject = alice1.animate(aliceTumbling, aliceTiming);
+  const promise1 = Promise.resolve(showAnimateObject.finished);
+    
+    promise1.then(() => {
+      const showAnimateObject2 = alice2.animate(aliceTumbling, aliceTiming);  
+      const promise2 = Promise.resolve(showAnimateObject2.finished);
+        
+        promise2.then(() => {
+          const showAnimateObject3 = alice3.animate(aliceTumbling, aliceTiming);
+        });
+    });
+
+  
+    
+};
+
   
 
 // promise version ----------------------------------------------------
@@ -82,6 +101,7 @@ async function tumbleAliceAsync() {
 };
 
 // button Set ----------------------------------------------------------
+buttonThen.addEventListener('click', tumbleAliceThen);
 buttonCallBack.addEventListener('click', tumbleAlice);
 buttonPromise.addEventListener('click', tumbleAliceProm);
 buttonAsync.addEventListener('click', tumbleAliceAsync);
